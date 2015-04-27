@@ -10,9 +10,12 @@ case class Book(title : String, author : String, year : Int)
 // Your job is to replace all ??? with your own code.
 
 class BookList {
-   var list = ListBuffer[Book]()
+   var list = ListBuffer[Book] = list("C# Yellow Book: Rob Miles: 2011", "C# Software Solutions:John Lewis:2007", "A History of Modern Computing:Paul E. Ceruzzi:2003",
+    "Universal History of Computing:Georges Ifrah:2001", "Tools for Thought:Howard Rheingold:2000")
 
    def addBook(book : Book) : Unit = {
+       println("book" += list)
+        
       // write code to add the book to 'list'.
       // hint: Use the list add (+=) method
    }
@@ -22,12 +25,14 @@ class BookList {
       // using it for testing purposes
 
    def printList() : Unit = {
+       println(list)
       // write code to printList()
       // you should also show how to use the method in your main
    }
 
    def getTitlesByAuthor(author : String) : ListBuffer[String] = {
       val byAuthorList = ListBuffer[String]()
+      
       // return a list of all titles that are written by author
 
 
@@ -51,6 +56,7 @@ class BookList {
    }
 
    def addFromFile(name : String) : Unit = {
+       val bookFileName = s"morebooks.txt"
      // instructor did this one for you...mostly
      for (file <- Try(Source.fromFile(name))) {
         for (line <- file.getLines) {
@@ -72,3 +78,4 @@ class BookList {
       books.list foreach { n => list += n }
    }
 }
+
